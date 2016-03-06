@@ -1,0 +1,3548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s3="http://imageright.com/imageright.irweb/AbstractTypes" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://imageright.com/imageright.irweb" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://imageright.com/imageright.irweb/literalTypes" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://imageright.com/imageright.irweb" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://imageright.com/imageright.irweb">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:complexType name="ArrayOfString">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="s:string[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRSysUser">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="UserID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Status" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Loginname" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Username" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="AdjID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SecurityLevel" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DefaultPrinter" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AuditLevel" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="UpdateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ExpiredDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Address" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PhoneW" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PhoneH" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Department" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DepartmentLoaded" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="IsSystemAccount" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRDataObject" />
+      <s:complexType name="ArrayOfIRRight">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRRight[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRRight">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SecurityNumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RightValue" type="s:unsignedShort" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRDrawer">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRDrawer[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRDrawer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SecurityNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FoldernumberName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FoldernumberNameShort" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userkey1name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata1name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata2name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata3name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata4name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata5name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Faxind" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="KeepMultipageFax" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FaxDrawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Requeind" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userkey2Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AccessRights" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="GroupOrder" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SortOrder" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FileNamePrompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FileNameDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRPacktype">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRPacktype[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRPacktype">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="PackageType" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AccessRights" type="s:unsignedInt" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="IRObjectRights">
+        <s:restriction base="s:string">
+          <s:enumeration value="arRead" />
+          <s:enumeration value="arWrite" />
+          <s:enumeration value="arCreate" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfIRDoctype">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRDoctype[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRDoctype">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="OverlayID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RotateFront" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Quetype" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="NotifyInd" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SecurityNumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RotateBack" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="BarcodexRefFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Doctype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="AlwaysNotifyUserid1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="AlwaysNotifyUserid2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Barcode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AccessRights" type="s:unsignedShort" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRFile">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRFile[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRFile">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Foldernumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userkey1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userid" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Status" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="StatusDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Foldertab1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="JacketDin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateLastOpened" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextDocid" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userdata5" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="SecondaryUserid" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Foldername" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Soundx1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Soundx2" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextPackageid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="MarkedInd" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="SDrawer" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRPage">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRPage[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRPage">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Foldernumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Docid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Pagenumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Din" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userkey1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Doctype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Docdate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="NumberPages" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Filename" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TempFilename" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drive" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Datecaptured" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Timecaptured" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SingleInd" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userid" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Status" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="StatusDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Batch" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Format" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Format2" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Media" type="s1:char" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Orientation" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Tempdin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Transtype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Operator" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Userkey2" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Reason" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ArchiveStatus" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ArchiveDate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Deviceid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Packageid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Packagetype" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="MarkedInd" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DspPagenumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AMedia" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ADrive" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PacktypeDescr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="DocumentDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Fldrname" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="DoctypeDescr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Formtempdin" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AccessRights" type="s:unsignedShort" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="OverlayID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DocIndex" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="IROutputType">
+        <s:restriction base="s:string">
+          <s:enumeration value="outPDF" />
+          <s:enumeration value="outZIP" />
+          <s:enumeration value="outNative" />
+          <s:enumeration value="outMergeAnn" />
+          <s:enumeration value="outMergeOvlToTiff" />
+          <s:enumeration value="outMergeOvlToPDF" />
+          <s:enumeration value="outMergeAnnOrToPDF" />
+          <s:enumeration value="outMergeAnnToPDF" />
+          <s:enumeration value="outMergeOvlAnn" />
+          <s:enumeration value="outMergeOvlAnnToPDF" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfIRImage">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRImage[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRImage">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ImageData" type="s:base64Binary" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="AnnData" type="s:base64Binary" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Filename" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Format" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="CRCHash" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="CRCAnnHash" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PageData" type="tns:IRPage" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRDevice">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRDevice[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRDevice">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DeviceID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="DevicePath" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="IsDefault" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="IsSystem" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="IsDearchive" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRDrawerFolderCombo">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRDrawerFolderCombo[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRDrawerFolderCombo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Foldernumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRFlow">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRFlow[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRFlow">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="FlowID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FlowName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Status" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRStep">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRStep[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRStep">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="FlowID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="StepID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Steptype" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Branch" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Deadlineflag" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Deadline" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DeadPriority" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="WarningPoint" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="CopyFlow" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="CopyStep" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRTask">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRTask[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRTask">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TaskID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="FlowID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="StepID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="StartTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="EndTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Status" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="LockBy" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="LockTime" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="UserID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userkey" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userkey2" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Priority" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DeadlineFlag" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Deadline" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AvailableDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="File_no" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Folder_no" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Drawer" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="PackageType" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="From_UserID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DateInitiated" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="From_FlowStep" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Doctype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FormTempdin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="FlowDesc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="StepDesc" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRAuthorizedUser">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRAuthorizedUser[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRAuthorizedUser">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Flowid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Stepid" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Userid" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="Username" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIRIniValue">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="tns:IRIniValue[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRIniValue">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="SectionName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ValueName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ItemValue" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://imageright.com/imageright.irweb/literalTypes">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="ArrayOfString" nillable="true" type="s2:ArrayOfString" />
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="IRSysUser" nillable="true" type="s2:IRSysUser" />
+      <s:complexType name="IRSysUser">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Loginname" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AdjID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SecurityLevel" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DefaultPrinter" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AuditLevel" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="UpdateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExpiredDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PhoneW" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PhoneH" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Department" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DepartmentLoaded" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsSystemAccount" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IRDataObject" />
+      <s:element name="int" type="s:int" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfIRRight" nillable="true" type="s2:ArrayOfIRRight" />
+      <s:complexType name="ArrayOfIRRight">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRRight" nillable="true" type="s2:IRRight" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRRight">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="SecurityNumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RightValue" type="s:unsignedShort" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRDrawer" nillable="true" type="s2:ArrayOfIRDrawer" />
+      <s:complexType name="ArrayOfIRDrawer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRDrawer" nillable="true" type="s2:IRDrawer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRDrawer">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SecurityNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FoldernumberName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FoldernumberNameShort" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userkey1name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata1name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata2name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata3name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata4name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata5name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Faxind" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="KeepMultipageFax" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FaxDrawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Requeind" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userkey2Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessRights" type="s:unsignedInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="GroupOrder" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FileNamePrompt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FileNameDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRPacktype" nillable="true" type="s2:ArrayOfIRPacktype" />
+      <s:complexType name="ArrayOfIRPacktype">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRPacktype" nillable="true" type="s2:IRPacktype" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRPacktype">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PackageType" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessRights" type="s:unsignedInt" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRDoctype" nillable="true" type="s2:ArrayOfIRDoctype" />
+      <s:complexType name="ArrayOfIRDoctype">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRDoctype" nillable="true" type="s2:IRDoctype" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRDoctype">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="OverlayID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RotateFront" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Quetype" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NotifyInd" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SecurityNumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RotateBack" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="BarcodexRefFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Doctype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AlwaysNotifyUserid1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AlwaysNotifyUserid2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessRights" type="s:unsignedShort" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRFile" nillable="true" type="s2:ArrayOfIRFile" />
+      <s:complexType name="ArrayOfIRFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRFile" nillable="true" type="s2:IRFile" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRFile">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Foldernumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userkey1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userid" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" name="StatusDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Foldertab1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JacketDin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DateLastOpened" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NextDocid" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userdata5" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SecondaryUserid" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Foldername" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Soundx1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Soundx2" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NextPackageid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="MarkedInd" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="SDrawer" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRPage" nillable="true" type="s2:ArrayOfIRPage" />
+      <s:complexType name="ArrayOfIRPage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRPage" nillable="true" type="s2:IRPage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRPage">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Foldernumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Docid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Pagenumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Din" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userkey1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Doctype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Docdate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberPages" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Filename" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TempFilename" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Drive" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Datecaptured" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Timecaptured" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SingleInd" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userid" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" name="StatusDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Batch" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Format" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Format2" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Media" type="s1:char" />
+              <s:element minOccurs="1" maxOccurs="1" name="Orientation" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tempdin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Transtype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Operator" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Userkey2" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ArchiveStatus" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArchiveDate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deviceid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Packageid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Packagetype" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="MarkedInd" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DspPagenumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AMedia" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" name="ADrive" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PacktypeDescr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DocumentDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fldrname" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DoctypeDescr" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Formtempdin" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccessRights" type="s:unsignedShort" />
+              <s:element minOccurs="1" maxOccurs="1" name="OverlayID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DocIndex" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="anyType" nillable="true" />
+      <s:element name="dateTime" type="s:dateTime" />
+      <s:element name="base64Binary" nillable="true" type="s:base64Binary" />
+      <s:element name="ArrayOfIRDevice" nillable="true" type="s2:ArrayOfIRDevice" />
+      <s:complexType name="ArrayOfIRDevice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRDevice" nillable="true" type="s2:IRDevice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRDevice">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="DeviceID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DevicePath" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsDefault" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsSystem" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsDearchive" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRDrawerFolderCombo" nillable="true" type="s2:ArrayOfIRDrawerFolderCombo" />
+      <s:complexType name="ArrayOfIRDrawerFolderCombo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRDrawerFolderCombo" nillable="true" type="s2:IRDrawerFolderCombo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRDrawerFolderCombo">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Foldernumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRFlow" nillable="true" type="s2:ArrayOfIRFlow" />
+      <s:complexType name="ArrayOfIRFlow">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRFlow" nillable="true" type="s2:IRFlow" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRFlow">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FlowID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlowName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRStep" nillable="true" type="s2:ArrayOfIRStep" />
+      <s:complexType name="ArrayOfIRStep">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRStep" nillable="true" type="s2:IRStep" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRStep">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FlowID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="StepID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Steptype" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deadlineflag" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Deadline" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DeadPriority" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="WarningPoint" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CopyFlow" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CopyStep" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRTask" nillable="true" type="s2:ArrayOfIRTask" />
+      <s:complexType name="ArrayOfIRTask">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRTask" nillable="true" type="s2:IRTask" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRTask">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FlowID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="StepID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="s1:char" />
+              <s:element minOccurs="0" maxOccurs="1" name="LockBy" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="LockTime" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userkey" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userkey2" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DeadlineFlag" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deadline" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="AvailableDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="File_no" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Folder_no" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Drawer" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PackageType" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="From_UserID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DateInitiated" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="From_FlowStep" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Doctype" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FormTempdin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FlowDesc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="StepDesc" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRAuthorizedUser" nillable="true" type="s2:ArrayOfIRAuthorizedUser" />
+      <s:complexType name="ArrayOfIRAuthorizedUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRAuthorizedUser" nillable="true" type="s2:IRAuthorizedUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRAuthorizedUser">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Flowid" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Stepid" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Userid" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfIRIniValue" nillable="true" type="s2:ArrayOfIRIniValue" />
+      <s:complexType name="ArrayOfIRIniValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IRIniValue" nillable="true" type="s2:IRIniValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IRIniValue">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:IRDataObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SectionName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ValueName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemValue" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <s:schema targetNamespace="http://imageright.com/imageright.irweb/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AvailableConnectionsSoapIn" />
+  <wsdl:message name="AvailableConnectionsSoapOut">
+    <wsdl:part name="AvailableConnectionsResult" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SetConnectionNameSoapIn">
+    <wsdl:part name="fName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetConnectionNameSoapOut" />
+  <wsdl:message name="GetSessionIDSoapIn" />
+  <wsdl:message name="GetSessionIDSoapOut">
+    <wsdl:part name="GetSessionIDResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUserSoapIn" />
+  <wsdl:message name="CurrentUserSoapOut">
+    <wsdl:part name="CurrentUserResult" type="tns:IRSysUser" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fUsageLevel" type="s:short" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapOut">
+    <wsdl:part name="UserLoginResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fOldPassword" type="s:string" />
+    <wsdl:part name="fNewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordSoapOut">
+    <wsdl:part name="ChangeUserPasswordResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="UserLogoffSoapIn" />
+  <wsdl:message name="UserLogoffSoapOut">
+    <wsdl:part name="UserLogoffResult" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FunctionalityRightsSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FunctionalityRightsSoapOut">
+    <wsdl:part name="FunctionalityRightsResult" type="tns:ArrayOfIRRight" />
+  </wsdl:message>
+  <wsdl:message name="UseIntegratedSecuritySoapIn" />
+  <wsdl:message name="UseIntegratedSecuritySoapOut" />
+  <wsdl:message name="GetDrawersSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fMinRights" type="s:unsignedShort" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawersSoapOut">
+    <wsdl:part name="GetDrawersResult" type="tns:ArrayOfIRDrawer" />
+  </wsdl:message>
+  <wsdl:message name="GetFolderTypesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fMinRights" type="s:short" />
+    <wsdl:part name="fDrawer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFolderTypesSoapOut">
+    <wsdl:part name="GetFolderTypesResult" type="tns:ArrayOfIRPacktype" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTypesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fMinRights" type="tns:IRObjectRights" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fPacktype" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTypesSoapOut">
+    <wsdl:part name="GetDocTypesResult" type="tns:ArrayOfIRDoctype" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFileNumMask" type="s:string" />
+    <wsdl:part name="fFileNameMask" type="s:string" />
+    <wsdl:part name="fUserkey1" type="s:string" />
+    <wsdl:part name="fUserdata1" type="s:string" />
+    <wsdl:part name="fUserdata2" type="s:string" />
+    <wsdl:part name="fUserdata3" type="s:string" />
+    <wsdl:part name="fUserdata4" type="s:string" />
+    <wsdl:part name="fUserdata5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesSoapOut">
+    <wsdl:part name="FindFilesResult" type="tns:ArrayOfIRFile" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesLimitSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFileNumMask" type="s:string" />
+    <wsdl:part name="fFileNameMask" type="s:string" />
+    <wsdl:part name="fUserkey1" type="s:string" />
+    <wsdl:part name="fUserdata1" type="s:string" />
+    <wsdl:part name="fUserdata2" type="s:string" />
+    <wsdl:part name="fUserdata3" type="s:string" />
+    <wsdl:part name="fUserdata4" type="s:string" />
+    <wsdl:part name="fUserdata5" type="s:string" />
+    <wsdl:part name="fMaxRec" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesLimitSoapOut">
+    <wsdl:part name="FindFilesLimitResult" type="tns:ArrayOfIRFile" />
+  </wsdl:message>
+  <wsdl:message name="FindDocumentsSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFileNumMask" type="s:string" />
+    <wsdl:part name="fPackagetype" type="s:int" />
+    <wsdl:part name="fDoctype" type="s:string" />
+    <wsdl:part name="fDatecaptured" type="s:string" />
+    <wsdl:part name="fDocdate" type="s:string" />
+    <wsdl:part name="fBatch" type="s:string" />
+    <wsdl:part name="fReason" type="s:string" />
+    <wsdl:part name="fRefernum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindDocumentsSoapOut">
+    <wsdl:part name="FindDocumentsResult" type="tns:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:int" />
+    <wsdl:part name="fPagenumber" type="s:int" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesSoapOut">
+    <wsdl:part name="GetPagesResult" type="tns:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesExSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fPackagetype" type="s:int" />
+    <wsdl:part name="fDocid" type="s:int" />
+    <wsdl:part name="fPagenumber" type="s:int" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesExSoapOut">
+    <wsdl:part name="GetPagesExResult" type="tns:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:int" />
+    <wsdl:part name="fFilename" type="s:string" />
+    <wsdl:part name="fFiletype" type="s:string" />
+    <wsdl:part name="fOutputType" type="tns:IROutputType" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileSoapOut">
+    <wsdl:part name="GetImageFileResult" type="s:anyType" />
+    <wsdl:part name="fNewFileType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileMaintainOrientationSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:int" />
+    <wsdl:part name="fFilename" type="s:string" />
+    <wsdl:part name="fFiletype" type="s:string" />
+    <wsdl:part name="fOutputType" type="tns:IROutputType" />
+    <wsdl:part name="fOrientation" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileMaintainOrientationSoapOut">
+    <wsdl:part name="GetImageFileMaintainOrientationResult" type="s:anyType" />
+    <wsdl:part name="fNewFileType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileMaintainOrientation2SoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:int" />
+    <wsdl:part name="fFilename" type="s:string" />
+    <wsdl:part name="fFiletype" type="s:string" />
+    <wsdl:part name="fOutputType" type="tns:IROutputType" />
+    <wsdl:part name="fOrientation" type="s:int" />
+    <wsdl:part name="hideRestrictedAnnotation" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileMaintainOrientation2SoapOut">
+    <wsdl:part name="GetImageFileMaintainOrientation2Result" type="s:anyType" />
+    <wsdl:part name="fNewFileType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PutImageFileSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:int" />
+    <wsdl:part name="fFilename" type="s:string" />
+    <wsdl:part name="fFiletype" type="s:string" />
+    <wsdl:part name="fFileData" type="s:base64Binary" />
+    <wsdl:part name="fFiledate" type="s:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="PutImageFileSoapOut">
+    <wsdl:part name="PutImageFileResult" type="s:anyType" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileDateSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:int" />
+    <wsdl:part name="fFilename" type="s:string" />
+    <wsdl:part name="fFiletype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileDateSoapOut">
+    <wsdl:part name="GetImageFileDateResult" type="s:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="LockFileSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:int" />
+    <wsdl:part name="fFilename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LockFileSoapOut">
+    <wsdl:part name="LockFileResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="UnLockFileSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:int" />
+    <wsdl:part name="fFilename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UnLockFileSoapOut">
+    <wsdl:part name="UnLockFileResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="LockMultiplePagesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:int" />
+    <wsdl:part name="fPagenumber" type="s:int" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LockMultiplePagesSoapOut">
+    <wsdl:part name="LockMultiplePagesResult" type="tns:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="UnLockMultiplePagesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:int" />
+    <wsdl:part name="fPagenumber" type="s:int" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UnLockMultiplePagesSoapOut">
+    <wsdl:part name="UnLockMultiplePagesResult" type="tns:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:int" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fRefernum" type="s:string" />
+    <wsdl:part name="fOutputType" type="tns:IROutputType" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileSoapOut">
+    <wsdl:part name="GetMultiPageImageFileResult" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileExSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:int" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fRefernum" type="s:string" />
+    <wsdl:part name="fOutputType" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileExSoapOut">
+    <wsdl:part name="GetMultiPageImageFileExResult" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPagePdfExSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fPackagetype" type="s:int" />
+    <wsdl:part name="fDocid" type="s:int" />
+    <wsdl:part name="fPagenumber" type="s:int" />
+    <wsdl:part name="fTempdin" type="s:string" />
+    <wsdl:part name="fMergeAnn" type="s:boolean" />
+    <wsdl:part name="fMergeOverlay" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPagePdfExSoapOut">
+    <wsdl:part name="GetMultiPagePdfExResult" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPagePdfSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fPages" type="tns:ArrayOfIRPage" />
+    <wsdl:part name="fMergeAnn" type="s:boolean" />
+    <wsdl:part name="fMergeOverlay" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPagePdfSoapOut">
+    <wsdl:part name="GetMultiPagePdfResult" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetImagesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fPages" type="tns:ArrayOfIRPage" />
+    <wsdl:part name="fMergeAnn" type="s:boolean" />
+    <wsdl:part name="fMergeOverlay" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetImagesSoapOut">
+    <wsdl:part name="GetImagesResult" type="tns:ArrayOfIRImage" />
+  </wsdl:message>
+  <wsdl:message name="AddDocumentSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDocData" type="tns:IRPage" />
+    <wsdl:part name="fImages" type="tns:ArrayOfIRImage" />
+  </wsdl:message>
+  <wsdl:message name="AddDocumentSoapOut">
+    <wsdl:part name="AddDocumentResult" type="tns:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="AddDocumentExtSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFolderData" type="tns:IRFile" />
+    <wsdl:part name="fDocData" type="tns:IRPage" />
+    <wsdl:part name="fImages" type="tns:ArrayOfIRImage" />
+  </wsdl:message>
+  <wsdl:message name="AddDocumentExtSoapOut">
+    <wsdl:part name="AddDocumentExtResult" type="tns:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="AddNoteSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fNotePageData" type="tns:IRPage" />
+    <wsdl:part name="fNoteText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddNoteSoapOut">
+    <wsdl:part name="AddNoteResult" type="tns:IRPage" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFileData" type="tns:IRFile" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileSoapOut">
+    <wsdl:part name="CreateFileResult" type="tns:IRFile" />
+  </wsdl:message>
+  <wsdl:message name="DevicesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevicesSoapOut">
+    <wsdl:part name="DevicesResult" type="tns:ArrayOfIRDevice" />
+  </wsdl:message>
+  <wsdl:message name="RelatedFilesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RelatedFilesSoapOut">
+    <wsdl:part name="RelatedFilesResult" type="tns:ArrayOfIRDrawerFolderCombo" />
+  </wsdl:message>
+  <wsdl:message name="DeletePageSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fPage" type="tns:IRPage" />
+  </wsdl:message>
+  <wsdl:message name="DeletePageSoapOut" />
+  <wsdl:message name="DeleteDocumentSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDocData" type="tns:IRPage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDocumentSoapOut" />
+  <wsdl:message name="GetFlowsSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fRights" type="s:unsignedShort" />
+  </wsdl:message>
+  <wsdl:message name="GetFlowsSoapOut">
+    <wsdl:part name="GetFlowsResult" type="tns:ArrayOfIRFlow" />
+  </wsdl:message>
+  <wsdl:message name="GetStepsSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:int" />
+    <wsdl:part name="fRights" type="s:unsignedShort" />
+  </wsdl:message>
+  <wsdl:message name="GetStepsSoapOut">
+    <wsdl:part name="GetStepsResult" type="tns:ArrayOfIRStep" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:int" />
+    <wsdl:part name="fStepid" type="s:int" />
+    <wsdl:part name="fAssignedTo" type="s:string" />
+    <wsdl:part name="fLockedBy" type="s:string" />
+    <wsdl:part name="fStatuses" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksSoapOut">
+    <wsdl:part name="GetTasksResult" type="tns:ArrayOfIRTask" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizedTaskReceiversSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:int" />
+    <wsdl:part name="fStepid" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizedTaskReceiversSoapOut">
+    <wsdl:part name="GetAuthorizedTaskReceiversResult" type="tns:ArrayOfIRAuthorizedUser" />
+  </wsdl:message>
+  <wsdl:message name="ToggleTaskLockSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:int" />
+    <wsdl:part name="fStepid" type="s:int" />
+    <wsdl:part name="fLockTask" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ToggleTaskLockSoapOut">
+    <wsdl:part name="ToggleTaskLockResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseTaskSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:int" />
+    <wsdl:part name="fStepid" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseTaskSoapOut">
+    <wsdl:part name="ReleaseTaskResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="KillTaskSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:int" />
+    <wsdl:part name="fStepid" type="s:int" />
+    <wsdl:part name="fNewDescription" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KillTaskSoapOut">
+    <wsdl:part name="KillTaskResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="RouteTaskSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fSrcTask" type="tns:IRTask" />
+    <wsdl:part name="fDestTask" type="tns:IRTask" />
+  </wsdl:message>
+  <wsdl:message name="RouteTaskSoapOut">
+    <wsdl:part name="RouteTaskResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="AlterTaskSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fCurTaskData" type="tns:IRTask" />
+    <wsdl:part name="fNewTaskData" type="tns:IRTask" />
+  </wsdl:message>
+  <wsdl:message name="AlterTaskSoapOut">
+    <wsdl:part name="AlterTaskResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="CreateTaskSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fTaskData" type="tns:IRTask" />
+    <wsdl:part name="fPageData" type="tns:IRPage" />
+  </wsdl:message>
+  <wsdl:message name="CreateTaskSoapOut">
+    <wsdl:part name="CreateTaskResult" type="tns:IRTask" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTasksByFileSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTasksByFileSoapOut">
+    <wsdl:part name="RetrieveTasksByFileResult" type="tns:ArrayOfIRTask" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionValuesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fSectionPath" type="s:string" />
+    <wsdl:part name="fSection" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionValuesSoapOut">
+    <wsdl:part name="ReadIniSectionValuesResult" type="tns:ArrayOfIRIniValue" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionsSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fSection" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionsSoapOut">
+    <wsdl:part name="ReadIniSectionsResult" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="WriteIniSectionValuesSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fCurrentTree" type="s:string" />
+    <wsdl:part name="fIniVals" type="tns:ArrayOfIRIniValue" />
+  </wsdl:message>
+  <wsdl:message name="WriteIniSectionValuesSoapOut">
+    <wsdl:part name="WriteIniSectionValuesResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="VersionSoapIn" />
+  <wsdl:message name="VersionSoapOut">
+    <wsdl:part name="VersionResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DrawerIndexesUsedSoapIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DrawerIndexesUsedSoapOut">
+    <wsdl:part name="DrawerIndexesUsedResult" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapIn">
+    <wsdl:part name="fErrorCode" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapOut">
+    <wsdl:part name="GetMessageResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AvailableConnectionsHttpPostIn" />
+  <wsdl:message name="AvailableConnectionsHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SetConnectionNameHttpPostIn">
+    <wsdl:part name="fName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetConnectionNameHttpPostOut" />
+  <wsdl:message name="GetSessionIDHttpPostIn" />
+  <wsdl:message name="GetSessionIDHttpPostOut">
+    <wsdl:part name="Body" element="s2:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUserHttpPostIn" />
+  <wsdl:message name="CurrentUserHttpPostOut">
+    <wsdl:part name="Body" element="s2:IRSysUser" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fUsageLevel" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginHttpPostOut">
+    <wsdl:part name="Body" element="s2:int" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fOldPassword" type="s:string" />
+    <wsdl:part name="fNewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordHttpPostOut">
+    <wsdl:part name="Body" element="s2:int" />
+  </wsdl:message>
+  <wsdl:message name="UserLogoffHttpPostIn" />
+  <wsdl:message name="UserLogoffHttpPostOut">
+    <wsdl:part name="Body" element="s2:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FunctionalityRightsHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FunctionalityRightsHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRRight" />
+  </wsdl:message>
+  <wsdl:message name="UseIntegratedSecurityHttpPostIn" />
+  <wsdl:message name="UseIntegratedSecurityHttpPostOut" />
+  <wsdl:message name="GetDrawersHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fMinRights" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDrawersHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRDrawer" />
+  </wsdl:message>
+  <wsdl:message name="GetFolderTypesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fMinRights" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFolderTypesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRPacktype" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTypesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fMinRights" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fPacktype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTypesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRDoctype" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFileNumMask" type="s:string" />
+    <wsdl:part name="fFileNameMask" type="s:string" />
+    <wsdl:part name="fUserkey1" type="s:string" />
+    <wsdl:part name="fUserdata1" type="s:string" />
+    <wsdl:part name="fUserdata2" type="s:string" />
+    <wsdl:part name="fUserdata3" type="s:string" />
+    <wsdl:part name="fUserdata4" type="s:string" />
+    <wsdl:part name="fUserdata5" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRFile" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesLimitHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFileNumMask" type="s:string" />
+    <wsdl:part name="fFileNameMask" type="s:string" />
+    <wsdl:part name="fUserkey1" type="s:string" />
+    <wsdl:part name="fUserdata1" type="s:string" />
+    <wsdl:part name="fUserdata2" type="s:string" />
+    <wsdl:part name="fUserdata3" type="s:string" />
+    <wsdl:part name="fUserdata4" type="s:string" />
+    <wsdl:part name="fUserdata5" type="s:string" />
+    <wsdl:part name="fMaxRec" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindFilesLimitHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRFile" />
+  </wsdl:message>
+  <wsdl:message name="FindDocumentsHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFileNumMask" type="s:string" />
+    <wsdl:part name="fPackagetype" type="s:string" />
+    <wsdl:part name="fDoctype" type="s:string" />
+    <wsdl:part name="fDatecaptured" type="s:string" />
+    <wsdl:part name="fDocdate" type="s:string" />
+    <wsdl:part name="fBatch" type="s:string" />
+    <wsdl:part name="fReason" type="s:string" />
+    <wsdl:part name="fRefernum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindDocumentsHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:string" />
+    <wsdl:part name="fPagenumber" type="s:string" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesExHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fPackagetype" type="s:string" />
+    <wsdl:part name="fDocid" type="s:string" />
+    <wsdl:part name="fPagenumber" type="s:string" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPagesExHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="PutImageFileHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:string" />
+    <wsdl:part name="fFilename" type="s:string" />
+    <wsdl:part name="fFiletype" type="s:string" />
+    <wsdl:part name="fFileData" type="s3:StringArray" />
+    <wsdl:part name="fFiledate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PutImageFileHttpPostOut">
+    <wsdl:part name="Body" element="s2:anyType" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileDateHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:string" />
+    <wsdl:part name="fFilename" type="s:string" />
+    <wsdl:part name="fFiletype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImageFileDateHttpPostOut">
+    <wsdl:part name="Body" element="s2:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="LockFileHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:string" />
+    <wsdl:part name="fFilename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LockFileHttpPostOut">
+    <wsdl:part name="Body" element="s2:int" />
+  </wsdl:message>
+  <wsdl:message name="UnLockFileHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDeviceid" type="s:string" />
+    <wsdl:part name="fFilename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UnLockFileHttpPostOut">
+    <wsdl:part name="Body" element="s2:int" />
+  </wsdl:message>
+  <wsdl:message name="LockMultiplePagesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:string" />
+    <wsdl:part name="fPagenumber" type="s:string" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LockMultiplePagesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="UnLockMultiplePagesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:string" />
+    <wsdl:part name="fPagenumber" type="s:string" />
+    <wsdl:part name="fTempdin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UnLockMultiplePagesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRPage" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fRefernum" type="s:string" />
+    <wsdl:part name="fOutputType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileHttpPostOut">
+    <wsdl:part name="Body" element="s2:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileExHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fDocid" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fRefernum" type="s:string" />
+    <wsdl:part name="fOutputType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPageImageFileExHttpPostOut">
+    <wsdl:part name="Body" element="s2:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPagePdfExHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+    <wsdl:part name="fPackagetype" type="s:string" />
+    <wsdl:part name="fDocid" type="s:string" />
+    <wsdl:part name="fPagenumber" type="s:string" />
+    <wsdl:part name="fTempdin" type="s:string" />
+    <wsdl:part name="fMergeAnn" type="s:string" />
+    <wsdl:part name="fMergeOverlay" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiPagePdfExHttpPostOut">
+    <wsdl:part name="Body" element="s2:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="DevicesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevicesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRDevice" />
+  </wsdl:message>
+  <wsdl:message name="RelatedFilesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RelatedFilesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRDrawerFolderCombo" />
+  </wsdl:message>
+  <wsdl:message name="GetFlowsHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fRights" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFlowsHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRFlow" />
+  </wsdl:message>
+  <wsdl:message name="GetStepsHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:string" />
+    <wsdl:part name="fRights" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStepsHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRStep" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:string" />
+    <wsdl:part name="fStepid" type="s:string" />
+    <wsdl:part name="fAssignedTo" type="s:string" />
+    <wsdl:part name="fLockedBy" type="s:string" />
+    <wsdl:part name="fStatuses" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTasksHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRTask" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizedTaskReceiversHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:string" />
+    <wsdl:part name="fStepid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizedTaskReceiversHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRAuthorizedUser" />
+  </wsdl:message>
+  <wsdl:message name="ToggleTaskLockHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:string" />
+    <wsdl:part name="fStepid" type="s:string" />
+    <wsdl:part name="fLockTask" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ToggleTaskLockHttpPostOut">
+    <wsdl:part name="Body" element="s2:int" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseTaskHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:string" />
+    <wsdl:part name="fStepid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseTaskHttpPostOut">
+    <wsdl:part name="Body" element="s2:int" />
+  </wsdl:message>
+  <wsdl:message name="KillTaskHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fTaskid" type="s:string" />
+    <wsdl:part name="fFlowid" type="s:string" />
+    <wsdl:part name="fStepid" type="s:string" />
+    <wsdl:part name="fNewDescription" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KillTaskHttpPostOut">
+    <wsdl:part name="Body" element="s2:int" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTasksByFileHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+    <wsdl:part name="fFoldernumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTasksByFileHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRTask" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionValuesHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fSectionPath" type="s:string" />
+    <wsdl:part name="fSection" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionValuesHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfIRIniValue" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionsHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fSection" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReadIniSectionsHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="VersionHttpPostIn" />
+  <wsdl:message name="VersionHttpPostOut">
+    <wsdl:part name="Body" element="s2:string" />
+  </wsdl:message>
+  <wsdl:message name="DrawerIndexesUsedHttpPostIn">
+    <wsdl:part name="fUsername" type="s:string" />
+    <wsdl:part name="fPassword" type="s:string" />
+    <wsdl:part name="fDrawer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DrawerIndexesUsedHttpPostOut">
+    <wsdl:part name="Body" element="s2:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpPostIn">
+    <wsdl:part name="fErrorCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpPostOut">
+    <wsdl:part name="Body" element="s2:string" />
+  </wsdl:message>
+  <wsdl:portType name="IRWebServiceSoap">
+    <wsdl:operation name="AvailableConnections">
+      <wsdl:input message="tns:AvailableConnectionsSoapIn" />
+      <wsdl:output message="tns:AvailableConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetConnectionName">
+      <wsdl:input message="tns:SetConnectionNameSoapIn" />
+      <wsdl:output message="tns:SetConnectionNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionID">
+      <wsdl:input message="tns:GetSessionIDSoapIn" />
+      <wsdl:output message="tns:GetSessionIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentUser">
+      <wsdl:input message="tns:CurrentUserSoapIn" />
+      <wsdl:output message="tns:CurrentUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:input message="tns:UserLoginSoapIn" />
+      <wsdl:output message="tns:UserLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <wsdl:input message="tns:ChangeUserPasswordSoapIn" />
+      <wsdl:output message="tns:ChangeUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogoff">
+      <wsdl:input message="tns:UserLogoffSoapIn" />
+      <wsdl:output message="tns:UserLogoffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FunctionalityRights">
+      <wsdl:input message="tns:FunctionalityRightsSoapIn" />
+      <wsdl:output message="tns:FunctionalityRightsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UseIntegratedSecurity">
+      <wsdl:input message="tns:UseIntegratedSecuritySoapIn" />
+      <wsdl:output message="tns:UseIntegratedSecuritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawers">
+      <wsdl:input message="tns:GetDrawersSoapIn" />
+      <wsdl:output message="tns:GetDrawersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderTypes">
+      <wsdl:input message="tns:GetFolderTypesSoapIn" />
+      <wsdl:output message="tns:GetFolderTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypes">
+      <wsdl:input message="tns:GetDocTypesSoapIn" />
+      <wsdl:output message="tns:GetDocTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindFiles">
+      <wsdl:input message="tns:FindFilesSoapIn" />
+      <wsdl:output message="tns:FindFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindFilesLimit">
+      <wsdl:input message="tns:FindFilesLimitSoapIn" />
+      <wsdl:output message="tns:FindFilesLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDocuments">
+      <wsdl:input message="tns:FindDocumentsSoapIn" />
+      <wsdl:output message="tns:FindDocumentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <wsdl:input message="tns:GetPagesSoapIn" />
+      <wsdl:output message="tns:GetPagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesEx">
+      <wsdl:input message="tns:GetPagesExSoapIn" />
+      <wsdl:output message="tns:GetPagesExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFile" parameterOrder="fUsername fPassword fDeviceid fFilename fFiletype fOutputType fNewFileType">
+      <wsdl:input message="tns:GetImageFileSoapIn" />
+      <wsdl:output message="tns:GetImageFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileMaintainOrientation" parameterOrder="fUsername fPassword fDeviceid fFilename fFiletype fOutputType fNewFileType fOrientation">
+      <wsdl:input message="tns:GetImageFileMaintainOrientationSoapIn" />
+      <wsdl:output message="tns:GetImageFileMaintainOrientationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileMaintainOrientation2" parameterOrder="fUsername fPassword fDeviceid fFilename fFiletype fOutputType fNewFileType fOrientation hideRestrictedAnnotation">
+      <wsdl:input message="tns:GetImageFileMaintainOrientation2SoapIn" />
+      <wsdl:output message="tns:GetImageFileMaintainOrientation2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutImageFile">
+      <wsdl:input message="tns:PutImageFileSoapIn" />
+      <wsdl:output message="tns:PutImageFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileDate">
+      <wsdl:input message="tns:GetImageFileDateSoapIn" />
+      <wsdl:output message="tns:GetImageFileDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LockFile">
+      <wsdl:input message="tns:LockFileSoapIn" />
+      <wsdl:output message="tns:LockFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnLockFile">
+      <wsdl:input message="tns:UnLockFileSoapIn" />
+      <wsdl:output message="tns:UnLockFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LockMultiplePages">
+      <wsdl:input message="tns:LockMultiplePagesSoapIn" />
+      <wsdl:output message="tns:LockMultiplePagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnLockMultiplePages">
+      <wsdl:input message="tns:UnLockMultiplePagesSoapIn" />
+      <wsdl:output message="tns:UnLockMultiplePagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFile">
+      <wsdl:input message="tns:GetMultiPageImageFileSoapIn" />
+      <wsdl:output message="tns:GetMultiPageImageFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFileEx">
+      <wsdl:input message="tns:GetMultiPageImageFileExSoapIn" />
+      <wsdl:output message="tns:GetMultiPageImageFileExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdfEx">
+      <wsdl:input message="tns:GetMultiPagePdfExSoapIn" />
+      <wsdl:output message="tns:GetMultiPagePdfExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdf">
+      <wsdl:input message="tns:GetMultiPagePdfSoapIn" />
+      <wsdl:output message="tns:GetMultiPagePdfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImages">
+      <wsdl:input message="tns:GetImagesSoapIn" />
+      <wsdl:output message="tns:GetImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDocument">
+      <wsdl:input message="tns:AddDocumentSoapIn" />
+      <wsdl:output message="tns:AddDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDocumentExt">
+      <wsdl:input message="tns:AddDocumentExtSoapIn" />
+      <wsdl:output message="tns:AddDocumentExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <wsdl:input message="tns:AddNoteSoapIn" />
+      <wsdl:output message="tns:AddNoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFile">
+      <wsdl:input message="tns:CreateFileSoapIn" />
+      <wsdl:output message="tns:CreateFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Devices">
+      <wsdl:input message="tns:DevicesSoapIn" />
+      <wsdl:output message="tns:DevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RelatedFiles">
+      <wsdl:input message="tns:RelatedFilesSoapIn" />
+      <wsdl:output message="tns:RelatedFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePage">
+      <wsdl:input message="tns:DeletePageSoapIn" />
+      <wsdl:output message="tns:DeletePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <wsdl:input message="tns:DeleteDocumentSoapIn" />
+      <wsdl:output message="tns:DeleteDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlows">
+      <wsdl:input message="tns:GetFlowsSoapIn" />
+      <wsdl:output message="tns:GetFlowsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSteps">
+      <wsdl:input message="tns:GetStepsSoapIn" />
+      <wsdl:output message="tns:GetStepsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <wsdl:input message="tns:GetTasksSoapIn" />
+      <wsdl:output message="tns:GetTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedTaskReceivers">
+      <wsdl:input message="tns:GetAuthorizedTaskReceiversSoapIn" />
+      <wsdl:output message="tns:GetAuthorizedTaskReceiversSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ToggleTaskLock">
+      <wsdl:input message="tns:ToggleTaskLockSoapIn" />
+      <wsdl:output message="tns:ToggleTaskLockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTask">
+      <wsdl:input message="tns:ReleaseTaskSoapIn" />
+      <wsdl:output message="tns:ReleaseTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KillTask">
+      <wsdl:input message="tns:KillTaskSoapIn" />
+      <wsdl:output message="tns:KillTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RouteTask">
+      <wsdl:input message="tns:RouteTaskSoapIn" />
+      <wsdl:output message="tns:RouteTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterTask">
+      <wsdl:input message="tns:AlterTaskSoapIn" />
+      <wsdl:output message="tns:AlterTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTask">
+      <wsdl:input message="tns:CreateTaskSoapIn" />
+      <wsdl:output message="tns:CreateTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTasksByFile">
+      <wsdl:input message="tns:RetrieveTasksByFileSoapIn" />
+      <wsdl:output message="tns:RetrieveTasksByFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSectionValues">
+      <wsdl:input message="tns:ReadIniSectionValuesSoapIn" />
+      <wsdl:output message="tns:ReadIniSectionValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSections">
+      <wsdl:input message="tns:ReadIniSectionsSoapIn" />
+      <wsdl:output message="tns:ReadIniSectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteIniSectionValues">
+      <wsdl:input message="tns:WriteIniSectionValuesSoapIn" />
+      <wsdl:output message="tns:WriteIniSectionValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <wsdl:input message="tns:VersionSoapIn" />
+      <wsdl:output message="tns:VersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawerIndexesUsed">
+      <wsdl:input message="tns:DrawerIndexesUsedSoapIn" />
+      <wsdl:output message="tns:DrawerIndexesUsedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageSoapIn" />
+      <wsdl:output message="tns:GetMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRWebServiceHttpPost">
+    <wsdl:operation name="AvailableConnections">
+      <wsdl:input message="tns:AvailableConnectionsHttpPostIn" />
+      <wsdl:output message="tns:AvailableConnectionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetConnectionName">
+      <wsdl:input message="tns:SetConnectionNameHttpPostIn" />
+      <wsdl:output message="tns:SetConnectionNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionID">
+      <wsdl:input message="tns:GetSessionIDHttpPostIn" />
+      <wsdl:output message="tns:GetSessionIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentUser">
+      <wsdl:input message="tns:CurrentUserHttpPostIn" />
+      <wsdl:output message="tns:CurrentUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:input message="tns:UserLoginHttpPostIn" />
+      <wsdl:output message="tns:UserLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <wsdl:input message="tns:ChangeUserPasswordHttpPostIn" />
+      <wsdl:output message="tns:ChangeUserPasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogoff">
+      <wsdl:input message="tns:UserLogoffHttpPostIn" />
+      <wsdl:output message="tns:UserLogoffHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FunctionalityRights">
+      <wsdl:input message="tns:FunctionalityRightsHttpPostIn" />
+      <wsdl:output message="tns:FunctionalityRightsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UseIntegratedSecurity">
+      <wsdl:input message="tns:UseIntegratedSecurityHttpPostIn" />
+      <wsdl:output message="tns:UseIntegratedSecurityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawers">
+      <wsdl:input message="tns:GetDrawersHttpPostIn" />
+      <wsdl:output message="tns:GetDrawersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderTypes">
+      <wsdl:input message="tns:GetFolderTypesHttpPostIn" />
+      <wsdl:output message="tns:GetFolderTypesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypes">
+      <wsdl:input message="tns:GetDocTypesHttpPostIn" />
+      <wsdl:output message="tns:GetDocTypesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindFiles">
+      <wsdl:input message="tns:FindFilesHttpPostIn" />
+      <wsdl:output message="tns:FindFilesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindFilesLimit">
+      <wsdl:input message="tns:FindFilesLimitHttpPostIn" />
+      <wsdl:output message="tns:FindFilesLimitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDocuments">
+      <wsdl:input message="tns:FindDocumentsHttpPostIn" />
+      <wsdl:output message="tns:FindDocumentsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <wsdl:input message="tns:GetPagesHttpPostIn" />
+      <wsdl:output message="tns:GetPagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesEx">
+      <wsdl:input message="tns:GetPagesExHttpPostIn" />
+      <wsdl:output message="tns:GetPagesExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutImageFile">
+      <wsdl:input message="tns:PutImageFileHttpPostIn" />
+      <wsdl:output message="tns:PutImageFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileDate">
+      <wsdl:input message="tns:GetImageFileDateHttpPostIn" />
+      <wsdl:output message="tns:GetImageFileDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LockFile">
+      <wsdl:input message="tns:LockFileHttpPostIn" />
+      <wsdl:output message="tns:LockFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnLockFile">
+      <wsdl:input message="tns:UnLockFileHttpPostIn" />
+      <wsdl:output message="tns:UnLockFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LockMultiplePages">
+      <wsdl:input message="tns:LockMultiplePagesHttpPostIn" />
+      <wsdl:output message="tns:LockMultiplePagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnLockMultiplePages">
+      <wsdl:input message="tns:UnLockMultiplePagesHttpPostIn" />
+      <wsdl:output message="tns:UnLockMultiplePagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFile">
+      <wsdl:input message="tns:GetMultiPageImageFileHttpPostIn" />
+      <wsdl:output message="tns:GetMultiPageImageFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFileEx">
+      <wsdl:input message="tns:GetMultiPageImageFileExHttpPostIn" />
+      <wsdl:output message="tns:GetMultiPageImageFileExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdfEx">
+      <wsdl:input message="tns:GetMultiPagePdfExHttpPostIn" />
+      <wsdl:output message="tns:GetMultiPagePdfExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Devices">
+      <wsdl:input message="tns:DevicesHttpPostIn" />
+      <wsdl:output message="tns:DevicesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RelatedFiles">
+      <wsdl:input message="tns:RelatedFilesHttpPostIn" />
+      <wsdl:output message="tns:RelatedFilesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlows">
+      <wsdl:input message="tns:GetFlowsHttpPostIn" />
+      <wsdl:output message="tns:GetFlowsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSteps">
+      <wsdl:input message="tns:GetStepsHttpPostIn" />
+      <wsdl:output message="tns:GetStepsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <wsdl:input message="tns:GetTasksHttpPostIn" />
+      <wsdl:output message="tns:GetTasksHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedTaskReceivers">
+      <wsdl:input message="tns:GetAuthorizedTaskReceiversHttpPostIn" />
+      <wsdl:output message="tns:GetAuthorizedTaskReceiversHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ToggleTaskLock">
+      <wsdl:input message="tns:ToggleTaskLockHttpPostIn" />
+      <wsdl:output message="tns:ToggleTaskLockHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTask">
+      <wsdl:input message="tns:ReleaseTaskHttpPostIn" />
+      <wsdl:output message="tns:ReleaseTaskHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KillTask">
+      <wsdl:input message="tns:KillTaskHttpPostIn" />
+      <wsdl:output message="tns:KillTaskHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTasksByFile">
+      <wsdl:input message="tns:RetrieveTasksByFileHttpPostIn" />
+      <wsdl:output message="tns:RetrieveTasksByFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSectionValues">
+      <wsdl:input message="tns:ReadIniSectionValuesHttpPostIn" />
+      <wsdl:output message="tns:ReadIniSectionValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSections">
+      <wsdl:input message="tns:ReadIniSectionsHttpPostIn" />
+      <wsdl:output message="tns:ReadIniSectionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <wsdl:input message="tns:VersionHttpPostIn" />
+      <wsdl:output message="tns:VersionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawerIndexesUsed">
+      <wsdl:input message="tns:DrawerIndexesUsedHttpPostIn" />
+      <wsdl:output message="tns:DrawerIndexesUsedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageHttpPostIn" />
+      <wsdl:output message="tns:GetMessageHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IRWebServiceSoap" type="tns:IRWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="AvailableConnections">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/AvailableConnections" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetConnectionName">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/SetConnectionName" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionID">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetSessionID" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentUser">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/CurrentUser" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/UserLogin" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/ChangeUserPassword" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogoff">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/UserLogoff" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FunctionalityRights">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/FunctionalityRights" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UseIntegratedSecurity">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/UseIntegratedSecurity" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawers">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetDrawers" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderTypes">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetFolderTypes" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypes">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetDocTypes" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFiles">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/FindFiles" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFilesLimit">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/FindFilesLimit" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocuments">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/FindDocuments" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetPages" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesEx">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetPagesEx" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFile">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetImageFile" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileMaintainOrientation">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetImageFileMaintainOrientation" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileMaintainOrientation2">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetImageFileMaintainOrientation2" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutImageFile">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/PutImageFile" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileDate">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetImageFileDate" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockFile">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/LockFile" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockFile">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/UnLockFile" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockMultiplePages">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/LockMultiplePages" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockMultiplePages">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/UnLockMultiplePages" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFile">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPageImageFile" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFileEx">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPageImageFileEx" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdfEx">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPagePdfEx" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdf">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPagePdf" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImages">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetImages" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDocument">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/AddDocument" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDocumentExt">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/AddDocumentExt" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/AddNote" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFile">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/CreateFile" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Devices">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/Devices" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelatedFiles">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/RelatedFiles" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePage">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/DeletePage" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/DeleteDocument" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlows">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetFlows" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSteps">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetSteps" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetTasks" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedTaskReceivers">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetAuthorizedTaskReceivers" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleTaskLock">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/ToggleTaskLock" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTask">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/ReleaseTask" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillTask">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/KillTask" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RouteTask">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/RouteTask" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterTask">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/AlterTask" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTask">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/CreateTask" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTasksByFile">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/RetrieveTasksByFile" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSectionValues">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/ReadIniSectionValues" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSections">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/ReadIniSections" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteIniSectionValues">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/WriteIniSectionValues" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/Version" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawerIndexesUsed">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/DrawerIndexesUsed" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://imageright.com/imageright.irweb/GetMessage" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IRWebServiceSoap12" type="tns:IRWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="AvailableConnections">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/AvailableConnections" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetConnectionName">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/SetConnectionName" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionID">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetSessionID" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentUser">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/CurrentUser" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/UserLogin" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/ChangeUserPassword" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogoff">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/UserLogoff" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FunctionalityRights">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/FunctionalityRights" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UseIntegratedSecurity">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/UseIntegratedSecurity" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawers">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetDrawers" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderTypes">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetFolderTypes" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypes">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetDocTypes" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFiles">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/FindFiles" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFilesLimit">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/FindFilesLimit" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocuments">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/FindDocuments" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetPages" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesEx">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetPagesEx" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFile">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetImageFile" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileMaintainOrientation">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetImageFileMaintainOrientation" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileMaintainOrientation2">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetImageFileMaintainOrientation2" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutImageFile">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/PutImageFile" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileDate">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetImageFileDate" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockFile">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/LockFile" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockFile">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/UnLockFile" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockMultiplePages">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/LockMultiplePages" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockMultiplePages">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/UnLockMultiplePages" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFile">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPageImageFile" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFileEx">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPageImageFileEx" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdfEx">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPagePdfEx" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdf">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetMultiPagePdf" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImages">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetImages" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDocument">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/AddDocument" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDocumentExt">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/AddDocumentExt" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/AddNote" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFile">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/CreateFile" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Devices">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/Devices" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelatedFiles">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/RelatedFiles" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePage">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/DeletePage" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/DeleteDocument" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlows">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetFlows" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSteps">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetSteps" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetTasks" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedTaskReceivers">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetAuthorizedTaskReceivers" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleTaskLock">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/ToggleTaskLock" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTask">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/ReleaseTask" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillTask">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/KillTask" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RouteTask">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/RouteTask" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterTask">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/AlterTask" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTask">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/CreateTask" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTasksByFile">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/RetrieveTasksByFile" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSectionValues">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/ReadIniSectionValues" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSections">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/ReadIniSections" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteIniSectionValues">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/WriteIniSectionValues" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/Version" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawerIndexesUsed">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/DrawerIndexesUsed" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://imageright.com/imageright.irweb/GetMessage" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://imageright.com/imageright.irweb" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IRWebServiceHttpPost" type="tns:IRWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AvailableConnections">
+      <http:operation location="/AvailableConnections" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetConnectionName">
+      <http:operation location="/SetConnectionName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionID">
+      <http:operation location="/GetSessionID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentUser">
+      <http:operation location="/CurrentUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <http:operation location="/UserLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <http:operation location="/ChangeUserPassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogoff">
+      <http:operation location="/UserLogoff" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FunctionalityRights">
+      <http:operation location="/FunctionalityRights" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UseIntegratedSecurity">
+      <http:operation location="/UseIntegratedSecurity" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrawers">
+      <http:operation location="/GetDrawers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderTypes">
+      <http:operation location="/GetFolderTypes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypes">
+      <http:operation location="/GetDocTypes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFiles">
+      <http:operation location="/FindFiles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindFilesLimit">
+      <http:operation location="/FindFilesLimit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocuments">
+      <http:operation location="/FindDocuments" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <http:operation location="/GetPages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagesEx">
+      <http:operation location="/GetPagesEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutImageFile">
+      <http:operation location="/PutImageFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageFileDate">
+      <http:operation location="/GetImageFileDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockFile">
+      <http:operation location="/LockFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockFile">
+      <http:operation location="/UnLockFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockMultiplePages">
+      <http:operation location="/LockMultiplePages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnLockMultiplePages">
+      <http:operation location="/UnLockMultiplePages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFile">
+      <http:operation location="/GetMultiPageImageFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPageImageFileEx">
+      <http:operation location="/GetMultiPageImageFileEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiPagePdfEx">
+      <http:operation location="/GetMultiPagePdfEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Devices">
+      <http:operation location="/Devices" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelatedFiles">
+      <http:operation location="/RelatedFiles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlows">
+      <http:operation location="/GetFlows" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSteps">
+      <http:operation location="/GetSteps" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <http:operation location="/GetTasks" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedTaskReceivers">
+      <http:operation location="/GetAuthorizedTaskReceivers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleTaskLock">
+      <http:operation location="/ToggleTaskLock" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseTask">
+      <http:operation location="/ReleaseTask" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillTask">
+      <http:operation location="/KillTask" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTasksByFile">
+      <http:operation location="/RetrieveTasksByFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSectionValues">
+      <http:operation location="/ReadIniSectionValues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadIniSections">
+      <http:operation location="/ReadIniSections" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Version">
+      <http:operation location="/Version" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawerIndexesUsed">
+      <http:operation location="/DrawerIndexesUsed" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <http:operation location="/GetMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IRWebService">
+    <wsdl:port name="IRWebServiceSoap" binding="tns:IRWebServiceSoap">
+      <soap:address location="http://irdev.maif.net/irwebservice/irwebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IRWebServiceSoap12" binding="tns:IRWebServiceSoap12">
+      <soap12:address location="http://irdev.maif.net/irwebservice/irwebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IRWebServiceHttpPost" binding="tns:IRWebServiceHttpPost">
+      <http:address location="http://irdev.maif.net/irwebservice/irwebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
